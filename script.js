@@ -18,7 +18,6 @@ function adicionarNovaTarefa() {
 function mostrarTarefas() {
   let novaLi = ''
 
-
   minhaListaDeItens.forEach((item, posicao) => {
     novaLi =
       novaLi +
