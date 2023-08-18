@@ -30,6 +30,7 @@ body {
     border: none;
     border-radius: 24px;
     background-color: #d1d1d1;
+    font-weight: bold;
 
 }
 
@@ -96,5 +97,46 @@ img {
 .done {
     background-color: #003329;
     text-decoration: line-through;
+    color: white;
+}
+
+.new-blocks-container  {
+    background-color: #d1d1d1;
+    width: 500px;
+    border-radius: 24px;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    display: none;
+}
+
+.button-container {
+    width: 280px;
+    display: flex;
+    gap: 20px;
+    margin-left:6px;
+
+}
+
+.add-block-button {
+    font-size: 12px;
+    border: none;
+    border-radius: 24px;
+    width: 103px;
+    cursor: pointer;
+    box-shadow: 1px 4px 10px rgba(0,0,0,0.2);
+    background-color: #adec99;
+    color: white;
+} 
+
+.remove-block-button {
+    font-size: 12px;
+    border: none;
+    border-radius: 24px;
+    width: 103px;
+    cursor: pointer;
+    box-shadow: 1px 4px 10px rgba(0,0,0,0.2);
+    background-color: #f08888;
     color: white;
 }
