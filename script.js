@@ -1,3 +1,4 @@
+// Importação de elementos
 const button = document.querySelector('.button-add-task');
 const input = document.querySelector('.input-task');
 const listaCompleta = document.querySelector('.list-tasks');
@@ -5,7 +6,10 @@ const addBlockButton = document.querySelector('.add-block-button');
 const removeBlockButton = document.querySelector('.remove-block-button');
 const newBlocksContainer = document.querySelector('.new-blocks-container');
 
+// Lista de tarefas e inicialização
 let minhaListaDeItens = [];
+recarregarTarefas();
+
 
 function adicionarNovaTarefa() {
   minhaListaDeItens.push({
@@ -17,6 +21,7 @@ function adicionarNovaTarefa() {
 
   mostrarTarefas();
 }
+
 
 function mostrarTarefas() {
   let novaLi = '';
@@ -38,6 +43,7 @@ function mostrarTarefas() {
   localStorage.setItem('lista', JSON.stringify(minhaListaDeItens));
 }
 
+
 function concluirTarefa(posicao) {
   minhaListaDeItens[posicao].concluida = !minhaListaDeItens[posicao].concluida;
   mostrarTarefas();
@@ -47,6 +53,7 @@ function deletarItem(posicao) {
   minhaListaDeItens.splice(posicao, 1);
   mostrarTarefas();
 }
+
 
 function recarregarTarefas() {
   const tarefasDoLocalStorage = localStorage.getItem('lista');
@@ -63,9 +70,9 @@ function adicionarNovoBloco() {
 
   newBlocksContainer.appendChild(newBlockContainer);
 
-  // Mostra a new-blocks-container quando um novo bloco é adicionado
   newBlocksContainer.style.display = 'block';
 }
+
 
 function criarBlocoContainer() {
   const newBlockContainer = document.createElement('div');
@@ -86,7 +93,8 @@ function criarBlocoContainer() {
   const newUlListTasks = document.createElement('ul');
   newUlListTasks.classList.add('list-tasks');
 
-  newButtonAddTask.addEventListener('click', adicionarNovaTarefa);
+  newButtonAddTask.addEventListener('click', () => adicionarNovaTarefaNoBloco(newUlListTasks));
+
 
   newBlockContainer.appendChild(newInputName);
   newBlockContainer.appendChild(newInputTask);
@@ -96,6 +104,33 @@ function criarBlocoContainer() {
   return newBlockContainer;
 }
 
+function adicionarNovaTarefaNoBloco(ulListTasks) {
+  const taskText = ulListTasks.previousSibling.previousSibling.value;
+  ulListTasks.previousSibling.previousSibling.value = '';
+
+  ulListTasks.innerHTML +=
+    `
+    <li class="task">
+        <img src="./img/checked.png" alt="check-na-tarefa" onclick="concluirTarefaNoBloco(this)">
+        <p>${taskText}</p>
+        <img src="./img/trash.png" alt="tarefa-para-o-lixo" onclick="deletarItemNoBloco(this)">
+    </li>
+    `;
+}
+
+
+function concluirTarefaNoBloco(imgElement) {
+  const listItem = imgElement.parentNode;
+  listItem.classList.toggle('done');
+}
+
+function deletarItemNoBloco(imgElement) {
+  const listItem = imgElement.parentNode;
+  const ulListTasks = listItem.parentNode;
+  ulListTasks.removeChild(listItem);
+}
+
+
 function removerUltimoBloco() {
   const blockContainers = document.querySelectorAll('.block-container');
 
@@ -103,13 +138,85 @@ function removerUltimoBloco() {
     blockContainers[blockContainers.length - 1].remove();
   }
 
-  // Oculta a new-blocks-container após remover um bloco
   if (blockContainers.length === 2) {
     newBlocksContainer.style.display = 'none';
   }
 }
 
-recarregarTarefas();
+
+
+
+//recarregarTarefas();
 button.addEventListener('click', adicionarNovaTarefa);
 addBlockButton.addEventListener('click', adicionarNovoBloco);
 removeBlockButton.addEventListener('click', removerUltimoBloco);
+
+
+function adicionarNovoBloco() {
+  const newBlockContainer = criarBlocoContainer();
+
+  newBlocksContainer.appendChild(newBlockContainer);
+
+  newBlocksContainer.style.display = 'block';
+}
+
+addBlockButton.addEventListener('click', adicionarNovoBloco);
+removeBlockButton.addEventListener('click', removerUltimoBloco);
+
+
+
+
+const newBlocksContainer2 = document.querySelector('.new-blocks-container2');
+const addBlockButton2 = document.querySelector('.add-block-button2');
+const removeBlockButton2 = document.querySelector('.remove-block-button2');
+const newBlocksContainer3 = document.querySelector('.new-blocks-container3');
+const addBlockButton3 = document.querySelector('.add-block-button3');
+const removeBlockButton3 = document.querySelector('.remove-block-button3');
+
+function adicionarNovoBloco2() {
+  const newBlockContainer = criarBlocoContainer();
+  newBlocksContainer2.appendChild(newBlockContainer);
+  newBlocksContainer2.style.display = 'block';
+}
+
+function adicionarNovoBloco3() {
+  const newBlockContainer = criarBlocoContainer();
+
+  newBlocksContainer3.appendChild(newBlockContainer);
+
+  newBlocksContainer3.style.display = 'block';
+}
+
+function removerUltimoBloco2() {
+  const blockContainers = document.querySelectorAll('.block-container');
+
+  if (blockContainers.length > 2) {
+    blockContainers[blockContainers.length - 1].remove();
+  }
+
+  if (blockContainers.length === 3) {
+    newBlocksContainer2.style.display = 'none';
+  }
+}
+
+function removerUltimoBloco3() {
+  const blockContainers = document.querySelectorAll('.block-container');
+
+  if (blockContainers.length > 3) {
+    blockContainers[blockContainers.length - 1].remove();
+  }
+
+  if (blockContainers.length === 4) {
+    newBlocksContainer3.style.display = 'none';
+  }
+}
+
+
+
+addBlockButton2.addEventListener('click', adicionarNovoBloco2);
+removeBlockButton2.addEventListener('click', removerUltimoBloco2);
+removeBlockButton3.addEventListener('click', removerUltimoBloco3);
+removeBlockButton3.addEventListener('click', removerUltimoBloco3);
+
+
+
