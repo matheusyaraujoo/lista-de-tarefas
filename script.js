@@ -8,6 +8,7 @@ const newBlocksContainer = document.querySelector('.new-blocks-container');
 let minhaListaDeItens = [];
 recarregarTarefas();
 
+
 function adicionarNovaTarefa() {
   minhaListaDeItens.push({
     tarefa: input.value,
@@ -21,6 +22,8 @@ function adicionarNovaTarefa() {
 
 
 function mostrarTarefas() {
+  minhaListaDeItens.sort((a, b) => (a.concluida && !b.concluida ? 1 : -1));
+
   let novaLi = '';
 
   minhaListaDeItens.forEach((item, posicao) => {
@@ -41,18 +44,15 @@ function mostrarTarefas() {
 }
 
 
-
 function concluirTarefa(posicao) {
   minhaListaDeItens[posicao].concluida = !minhaListaDeItens[posicao].concluida;
   mostrarTarefas();
 }
 
-
-function concluirTarefa(posicao) {
-  minhaListaDeItens[posicao].concluida = !minhaListaDeItens[posicao].concluida;
+function deletarItem(posicao) {
+  minhaListaDeItens.splice(posicao, 1);
   mostrarTarefas();
 }
-
 
 
 function recarregarTarefas() {
@@ -65,7 +65,6 @@ function recarregarTarefas() {
   mostrarTarefas();
 }
 
-
 function adicionarNovoBloco() {
   const newBlockContainer = criarBlocoContainer();
 
@@ -75,10 +74,9 @@ function adicionarNovoBloco() {
 }
 
 
-
 function criarBlocoContainer() {
   const newBlockContainer = document.createElement('div');
-  newBlockContainer.classList.add('block-container', 'draggable'); 
+  newBlockContainer.classList.add('block-container');
 
   const newInputName = document.createElement('input');
   newInputName.classList.add('input-name');
@@ -132,6 +130,7 @@ function deletarItemNoBloco(imgElement) {
   ulListTasks.removeChild(listItem);
 }
 
+
 function removerUltimoBloco() {
   const blockContainers = document.querySelectorAll('.block-container');
 
@@ -143,6 +142,8 @@ function removerUltimoBloco() {
     newBlocksContainer.style.display = 'none';
   }
 }
+
+
 
 
 //recarregarTarefas();
@@ -178,7 +179,6 @@ function adicionarNovoBloco2() {
   newBlocksContainer2.style.display = 'block';
 }
 
-
 function adicionarNovoBloco3() {
   const newBlockContainer = criarBlocoContainer();
 
@@ -186,7 +186,6 @@ function adicionarNovoBloco3() {
 
   newBlocksContainer3.style.display = 'block';
 }
-
 
 function removerUltimoBloco2() {
   const blockContainers = document.querySelectorAll('.block-container');
@@ -199,7 +198,6 @@ function removerUltimoBloco2() {
     newBlocksContainer2.style.display = 'none';
   }
 }
-
 
 function removerUltimoBloco3() {
   const blockContainers = document.querySelectorAll('.block-container');
