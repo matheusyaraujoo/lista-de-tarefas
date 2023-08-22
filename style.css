@@ -8,6 +8,7 @@
 
 body {
     background: url("./img/sunset.jpg");
+    display: flex;
 }
 
 .container {

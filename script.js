@@ -20,7 +20,6 @@ function adicionarNovaTarefa() {
   mostrarTarefas();
 }
 
-
 function mostrarTarefas() {
   minhaListaDeItens.sort((a, b) => (a.concluida && !b.concluida ? 1 : -1));
 
@@ -48,6 +47,7 @@ function concluirTarefa(posicao) {
   minhaListaDeItens[posicao].concluida = !minhaListaDeItens[posicao].concluida;
   mostrarTarefas();
 }
+
 
 function deletarItem(posicao) {
   minhaListaDeItens.splice(posicao, 1);
@@ -95,7 +95,6 @@ function criarBlocoContainer() {
 
   newButtonAddTask.addEventListener('click', () => adicionarNovaTarefaNoBloco(newUlListTasks));
 
-
   newBlockContainer.appendChild(newInputName);
   newBlockContainer.appendChild(newInputTask);
   newBlockContainer.appendChild(newButtonAddTask);
@@ -119,16 +118,21 @@ function adicionarNovaTarefaNoBloco(ulListTasks) {
 }
 
 
+
 function concluirTarefaNoBloco(imgElement) {
   const listItem = imgElement.parentNode;
   listItem.classList.toggle('done');
+  const ulListTasks = listItem.parentNode;
+  ulListTasks.appendChild(listItem);
 }
+
 
 function deletarItemNoBloco(imgElement) {
   const listItem = imgElement.parentNode;
   const ulListTasks = listItem.parentNode;
   ulListTasks.removeChild(listItem);
 }
+
 
 
 function removerUltimoBloco() {
@@ -151,13 +155,10 @@ button.addEventListener('click', adicionarNovaTarefa);
 addBlockButton.addEventListener('click', adicionarNovoBloco);
 removeBlockButton.addEventListener('click', removerUltimoBloco);
 
-
-function adicionarNovoBloco() {
+function adicionarNovoBloco2() {
   const newBlockContainer = criarBlocoContainer();
-
-  newBlocksContainer.appendChild(newBlockContainer);
-
-  newBlocksContainer.style.display = 'block';
+  newBlocksContainer2.appendChild(newBlockContainer);
+  newBlocksContainer2.style.display = 'block';
 }
 
 addBlockButton.addEventListener('click', adicionarNovoBloco);
@@ -173,6 +174,7 @@ const newBlocksContainer3 = document.querySelector('.new-blocks-container3');
 const addBlockButton3 = document.querySelector('.add-block-button3');
 const removeBlockButton3 = document.querySelector('.remove-block-button3');
 
+
 function adicionarNovoBloco2() {
   const newBlockContainer = criarBlocoContainer();
   newBlocksContainer2.appendChild(newBlockContainer);
@@ -181,9 +183,7 @@ function adicionarNovoBloco2() {
 
 function adicionarNovoBloco3() {
   const newBlockContainer = criarBlocoContainer();
-
   newBlocksContainer3.appendChild(newBlockContainer);
-
   newBlocksContainer3.style.display = 'block';
 }
 
