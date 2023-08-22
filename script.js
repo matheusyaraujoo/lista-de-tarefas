@@ -1,4 +1,3 @@
-// Importação de elementos
 const button = document.querySelector('.button-add-task');
 const input = document.querySelector('.input-task');
 const listaCompleta = document.querySelector('.list-tasks');
@@ -6,10 +5,8 @@ const addBlockButton = document.querySelector('.add-block-button');
 const removeBlockButton = document.querySelector('.remove-block-button');
 const newBlocksContainer = document.querySelector('.new-blocks-container');
 
-// Lista de tarefas e inicialização
 let minhaListaDeItens = [];
 recarregarTarefas();
-
 
 function adicionarNovaTarefa() {
   minhaListaDeItens.push({
@@ -44,15 +41,18 @@ function mostrarTarefas() {
 }
 
 
+
 function concluirTarefa(posicao) {
   minhaListaDeItens[posicao].concluida = !minhaListaDeItens[posicao].concluida;
   mostrarTarefas();
 }
 
-function deletarItem(posicao) {
-  minhaListaDeItens.splice(posicao, 1);
+
+function concluirTarefa(posicao) {
+  minhaListaDeItens[posicao].concluida = !minhaListaDeItens[posicao].concluida;
   mostrarTarefas();
 }
+
 
 
 function recarregarTarefas() {
@@ -65,6 +65,7 @@ function recarregarTarefas() {
   mostrarTarefas();
 }
 
+
 function adicionarNovoBloco() {
   const newBlockContainer = criarBlocoContainer();
 
@@ -74,9 +75,10 @@ function adicionarNovoBloco() {
 }
 
 
+
 function criarBlocoContainer() {
   const newBlockContainer = document.createElement('div');
-  newBlockContainer.classList.add('block-container');
+  newBlockContainer.classList.add('block-container', 'draggable'); 
 
   const newInputName = document.createElement('input');
   newInputName.classList.add('input-name');
@@ -130,7 +132,6 @@ function deletarItemNoBloco(imgElement) {
   ulListTasks.removeChild(listItem);
 }
 
-
 function removerUltimoBloco() {
   const blockContainers = document.querySelectorAll('.block-container');
 
@@ -142,8 +143,6 @@ function removerUltimoBloco() {
     newBlocksContainer.style.display = 'none';
   }
 }
-
-
 
 
 //recarregarTarefas();
@@ -179,6 +178,7 @@ function adicionarNovoBloco2() {
   newBlocksContainer2.style.display = 'block';
 }
 
+
 function adicionarNovoBloco3() {
   const newBlockContainer = criarBlocoContainer();
 
@@ -186,6 +186,7 @@ function adicionarNovoBloco3() {
 
   newBlocksContainer3.style.display = 'block';
 }
+
 
 function removerUltimoBloco2() {
   const blockContainers = document.querySelectorAll('.block-container');
@@ -198,6 +199,7 @@ function removerUltimoBloco2() {
     newBlocksContainer2.style.display = 'none';
   }
 }
+
 
 function removerUltimoBloco3() {
   const blockContainers = document.querySelectorAll('.block-container');
