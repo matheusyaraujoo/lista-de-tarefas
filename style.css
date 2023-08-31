@@ -11,6 +11,51 @@ body {
     display: flex;
 }
 
+.change-wallpaper-button {
+background: none;
+outline: none;
+border: none;
+margin-top: 50px;
+color: white;
+cursor: pointer;
+position: absolute;
+margin-left: 868px;
+font-size: 18px;
+color: #e1e1e1;
+font-family: inherit;
+font-weight: 800;
+border: none;
+text-transform: uppercase;
+transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+transition-duration: 400ms;
+transition-property: color;
+}
+
+.change-wallpaper-button:focus,
+.change-wallpaper-button:hover {
+  color: #fff;
+}
+
+.change-wallpaper-button:focus:after,
+.change-wallpaper-button:hover:after {
+  width: 100%;
+  left: 0%;
+}
+
+.change-wallpaper-button:after {
+  content: "";
+  pointer-events: none;
+  bottom: -2px;
+  left: 50%;
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: #fff;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: width, left;
+}
+
 .container {
     background-color: #d1d1d1;
     width: 500px;
@@ -45,26 +90,33 @@ body {
 }
 
 .button-add-task {
-    border: none;
-    border-radius: 10px;
-    box-shadow: 1px 4px 10px rgba(0,0,0,0.2);
-    height: 40px;
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
     background-color: #003329;
-    color: #ffff;
-    font-size: 17px;
-    padding: 0 15px;
-    float: right;
-    cursor: pointer;
-    font-weight: 700;
-}
-
-.button-add-task:hover {
-    opacity: 0.8;
-}
-
-.button-add-task:active {
-    opacity: 0.72;
-}
+    border: 2px solid #000;
+    border-radius: 10px;
+    box-shadow: 5px 5px 0px #000;
+    transition: all 0.3s ease;
+    margin-left: 15px;
+  }
+  
+  .button-add-task:hover {
+    background-color: #000000;
+    color: #ffffff;
+    border: 2px solid #003329;
+    box-shadow: 5px 5px 0px #003329;
+  }
+  
+  .button-add-task:active {
+    background-color: #003329;
+    box-shadow: none;
+    transform: translateY(4px);
+  }
 
 .list-tasks {
     width: 100%;
@@ -110,26 +162,138 @@ img {
 }
 
 .add-block-button {
-    font-size: 12px;
-    border: none;
-    border-radius: 24px;
-    width: 103px;
+    position: relative;
+    width: 150px;
+    height: 40px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 1px solid #34974d;
+    background-color: #3aa856;
+    font-size: 12px;
     box-shadow: 1px 4px 10px rgba(0,0,0,0.2);
-    background-color: #adec99;
-    color: white;
+    border-radius: 24px;
+    margin-bottom: 19px;
 } 
 
-.remove-block-button {
-    font-size: 12px;
-    border: none;
+.add-block-button, .button__icon, .button__text {
+    transition: all 0.3s;
+  }
+
+  .add-block-button .button__text {
+    transform: translateX(30px);
+    color: #fff;
+    font-weight: 600;
+    margin-left: -20px;
+  }
+
+  .add-block-button .button__icon {
+    position: absolute;
+    transform: translateX(109px);
+    height: 100%;
+    width: 39px;
+    background-color: #34974d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 24px;
-    width: 103px;
-    cursor: pointer;
-    box-shadow: 1px 4px 10px rgba(0,0,0,0.2);
-    background-color: #f08888;
-    color: white;
+  }
+  
+  .add-block-button .svg {
+    width: 30px;
+    stroke: #fff;
+  }
+
+
+.add-block-button:hover {
+  background: #34974d;
 }
+
+.add-block-button:hover .button__text {
+    color: transparent;
+  }
+
+
+  .add-block-button:hover .button__icon {
+    width: 148px;
+    transform: translateX(0);
+  }
+
+
+  .add-block-button:active .button__icon {
+    background-color: #2e8644;
+  }
+
+  .add-block-button:active {
+    border: 1px solid #2e8644;
+  }
+
+
+  .add-block-button2 {
+    position: relative;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 1px solid #34974d;
+    background-color: #3aa856;
+    font-size: 12px;
+    box-shadow: 1px 4px 10px rgba(0,0,0,0.2);
+    border-radius: 24px;
+} 
+
+.add-block-button2, .button__icon, .button__text {
+    transition: all 0.3s;
+  }
+
+  .add-block-button2 .button__text {
+    transform: translateX(30px);
+    color: #fff;
+    font-weight: 600;
+    margin-left: -20px;
+  }
+
+  .add-block-button2 .button__icon {
+    position: absolute;
+    transform: translateX(109px);
+    height: 100%;
+    width: 39px;
+    background-color: #34974d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 24px;
+  }
+  
+  .add-block-button2 .svg {
+    width: 30px;
+    stroke: #fff;
+  }
+
+
+.add-block-button2:hover {
+  background: #34974d;
+}
+
+.add-block-button2:hover .button__text {
+    color: transparent;
+  }
+
+
+  .add-block-button2:hover .button__icon {
+    width: 148px;
+    transform: translateX(0);
+  }
+
+
+  .add-block-button2:active .button__icon {
+    background-color: #2e8644;
+  }
+
+  .add-block-button2:active {
+    border: 1px solid #2e8644;
+  }
 
 
 .new-blocks-container  {
@@ -151,30 +315,122 @@ img {
     margin-bottom: 19px;
 }
 
-.add-block-button2 {
-    font-size: 12px;
+
+.remove-block-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgb(20, 20, 20);
     border: none;
-    border-radius: 24px;
-    width: 103px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
     cursor: pointer;
-    box-shadow: 1px 4px 10px rgba(0,0,0,0.2);
-    background-color: #adec99;
+    transition-duration: .3s;
+    overflow: hidden;
+    position: relative;
+    
+  }
+  
+  .svgIcon {
+    width: 12px;
+    transition-duration: .3s;
+  }
+  
+  .svgIcon path {
+    fill: white;
+  }
+  
+  .remove-block-button:hover {
+    width: 55px;
+    border-radius: 50px;
+    transition-duration: .3s;
+    background-color: rgb(255, 69, 69);
+    align-items: center;
+  }
+  
+  .remove-block-button:hover .svgIcon {
+    width: 38px;
+    transition-duration: .3s;
+    transform: translateY(60%);
+  }
+  
+  .remove-block-button::before {
+    position: absolute;
+    top: -23px;
+    content: "Remover";
     color: white;
-} 
+    transition-duration: .3s;
+    font-size: 2px;
+  }
+  
+  .remove-block-button:hover::before {
+    font-size: 9px;
+    opacity: 1;
+    transform: translateY(30px);
+    transition-duration: .3s;
+  }
 
-.remove-block-button2 {
-    font-size: 12px;
+
+
+  .remove-block-button2 {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgb(20, 20, 20);
     border: none;
-    border-radius: 24px;
-    width: 103px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
     cursor: pointer;
-    box-shadow: 1px 4px 10px rgba(0,0,0,0.2);
-    background-color: #f08888;
+    transition-duration: .3s;
+    overflow: hidden;
+    position: relative;
+    
+  }
+  
+  .svgIcon {
+    width: 12px;
+    transition-duration: .3s;
+  }
+  
+  .svgIcon path {
+    fill: white;
+  }
+  
+  .remove-block-button2:hover {
+    width: 55px;
+    border-radius: 50px;
+    transition-duration: .3s;
+    background-color: rgb(255, 69, 69);
+    align-items: center;
+  }
+  
+  .remove-block-button2:hover .svgIcon {
+    width: 38px;
+    transition-duration: .3s;
+    transform: translateY(60%);
+  }
+  
+  .remove-block-button2::before {
+    position: absolute;
+    top: -20px;
+    content: "Remover";
     color: white;
-}
-
-
-
+    transition-duration: .3s;
+    font-size: 2px;
+  }
+  
+  .remove-block-button2:hover::before {
+    font-size: 10px;
+    opacity: 1;
+    transform: translateY(30px);
+    transition-duration: .3s;
+  }
 
 
 
@@ -195,26 +451,4 @@ img {
         gap: 20px;
         margin-left:6px;
         margin-bottom: 19px;
-    }
-    
-    .add-block-button3 {
-        font-size: 12px;
-        border: none;
-        border-radius: 24px;
-        width: 103px;
-        cursor: pointer;
-        box-shadow: 1px 4px 10px rgba(0,0,0,0.2);
-        background-color: #adec99;
-        color: white;
-    } 
-    
-    .remove-block-button3 {
-        font-size: 12px;
-        border: none;
-        border-radius: 24px;
-        width: 103px;
-        cursor: pointer;
-        box-shadow: 1px 4px 10px rgba(0,0,0,0.2);
-        background-color: #f08888;
-        color: white;
     }

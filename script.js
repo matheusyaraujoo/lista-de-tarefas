@@ -8,6 +8,43 @@ const newBlocksContainer = document.querySelector('.new-blocks-container');
 let minhaListaDeItens = [];
 recarregarTarefas();
 
+const changeWallpaperButton = document.querySelector('.change-wallpaper-button');
+const fileInput = document.getElementById('file-input');
+
+changeWallpaperButton.addEventListener('click', () => {
+  fileInput.click(); // Simula o clique no input de arquivo
+});
+
+fileInput.addEventListener('change', (event) => {
+  const selectedFile = event.target.files[0];
+
+  if (selectedFile) {
+    const imageUrl = URL.createObjectURL(selectedFile);
+
+    const img = new Image();
+    img.src = imageUrl;
+
+    img.onload = () => {
+      const aspectRatio = img.width / img.height;
+      const screenWidth = window.innerWidth;
+      const screenHeight = window.innerHeight;
+
+      let newWidth, newHeight;
+
+      if (screenWidth / screenHeight > aspectRatio) {
+        newWidth = screenWidth;
+        newHeight = screenWidth / aspectRatio;
+      } else {
+        newHeight = screenHeight;
+        newWidth = screenHeight * aspectRatio;
+      }
+
+      document.body.style.backgroundImage = `url(${imageUrl})`;
+      document.body.style.backgroundSize = `${newWidth}px ${newHeight}px`;
+    };
+  }
+});
+
 
 function adicionarNovaTarefa() {
   minhaListaDeItens.push({
