@@ -3,7 +3,7 @@ Um projeto que é de grande ajuda no meu dia a dia! Uso essa lista de tarefas pa
 
 Aqui está um exemplo de como eu me organizo através dessa ferramenta:
 
-<img src="./img/listadetarefas.jpg">
+<img src="./img/listadetarefas.png">
 
 
 # To-do list (English)
@@ -11,4 +11,4 @@ A project that is a great help in my day-to-day life! I use this to-do list to o
 
 Here's an example of how I organize myself using this tool:
 
-<img src="./img/listadetarefas.jpg">
+<img src="./img/listadetarefas.png">
