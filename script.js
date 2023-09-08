@@ -40,7 +40,8 @@ fileInput.addEventListener('change', (event) => {
       }
 
       document.body.style.backgroundImage = `url(${imageUrl})`;
-      document.body.style.backgroundSize = `${newWidth}px ${newHeight}px`;
+      document.body.style.backgroundSize = `100% 100%`;
+
     };
   }
 });

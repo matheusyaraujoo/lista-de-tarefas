@@ -9,6 +9,9 @@
 body {
     background: url("./img/sunset.jpg");
     display: flex;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
 .change-wallpaper-button {
