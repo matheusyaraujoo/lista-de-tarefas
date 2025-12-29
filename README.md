@@ -7,9 +7,9 @@ Aqui está um exemplo de como eu me organizo através dessa ferramenta:
 
 
 # Lista de tareas (Español)
-¡Un proyecto que es de gran ayuda en mi día a día! Utilizo esta lista de tareas para organizar mis objetivos diarios, el paso a paso de los proyectos en los que estoy trabajando, los compromisos personales, entre otras cosas. ¡Usar esta herramienta hace que todo sea más simple y fácil!
+Un proyecto que es de gran ayuda en mi día a día! Utilizo esta lista de tareas para organizar mis objetivos diarios, el paso a paso de los proyectos en los que estoy trabajando, los compromisos personales, entre otras cosas. Usar esta herramienta hace que todo sea más simple y fácil!
 
-He aquí un ejemplo de cómo me organizo con esta herramienta
+Aquí va un ejemplo de cómo me organizo con esta herramienta
 
 <img src="./img/listadetarefas.png">
 
